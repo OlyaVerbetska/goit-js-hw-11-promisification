@@ -6,19 +6,18 @@ const users = [
 ];
 
 const toggleUserState = (allUsers, userName) => {
-  const promiseToggle = new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
       const updatedUsers = allUsers.map(user =>
         user.name === userName ? { ...user, active: !user.active } : user,
       );
       resolve(updatedUsers);
-    }, 1000);
+    }, 2500);
   });
-  return promiseToggle;
-};
+  };
 
 const logger = updatedUsers => console.table(updatedUsers);
 
 toggleUserState(users, 'Mango').then(logger);
-toggleUserState(users, 'Lux').then(logger);
-toggleUserState(users, 'Laima').then(logger);
+ toggleUserState(users, 'Lux').then(logger);
+//toggleUserState(users, 'Laima').then(logger);
